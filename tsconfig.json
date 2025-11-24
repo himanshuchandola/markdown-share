@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@root/*": ["./*"],
+      "@public/*": ["public/*"],
+      "@lib/*": ["src/core/*"],
+      "@components/*": ["src/ui/*"],
+      "@utils/*": ["src/helpers/*"],
+      "@pages/*": ["src/pages/*"],
+      "@styles/*": ["src/theme/*"],
+      "@models/*": ["src/core/db/models/*"],
+      "@interfaces": ["src/types"]
+    },
+
+    "resolveJsonModule": true,
+    "allowJs": false,
+    "sourceMap": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "strict": true,
+    "useUnknownInCatchVariables": false,
+    "allowUnreachableCode": false,
+
+    "skipLibCheck": true
+  },
+  "include": ["*.ts", "*.js", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "out", "public", "coverage"]
+}

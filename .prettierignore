@@ -1,0 +1,16 @@
+public/
+coverage/
+*.*
+
+!*.json
+!*.md
+!*.mdx
+!*.ts
+!*.tsx
+!*.js
+!*.jsx
+!*.yml
+!*.yaml
+!.eslintrc
+!.prettierrc
+!.stylelintrc
