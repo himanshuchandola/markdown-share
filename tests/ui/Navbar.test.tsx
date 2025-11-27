@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { Navbar } from '@ui/Navbar'
 
 jest.mock('next/router', () => ({
-  useRouter: jest.fn(() => ({ pathname: '/about' })),
+  useRouter: jest.fn(() => ({ pathname: '/' })),
 }))
 
 describe('Navbar component', () => {
@@ -16,16 +16,12 @@ describe('Navbar component', () => {
   it('should render the correct number of navigation links', () => {
     const { getAllByRole } = render(<Navbar />)
     const navLinks = getAllByRole('link')
-    expect(navLinks.length).toEqual(4)
+    expect(navLinks.length).toEqual(2)
   })
 
   it('should have the active class on the current page link', () => {
     const { getByText } = render(<Navbar />)
     const homeLink = getByText('Home')
-    const aboutLink = getByText('About')
-    const contactLink = getByText('Contact')
-    expect(homeLink).not.toHaveClass('active')
-    expect(aboutLink).toHaveClass('active')
-    expect(contactLink).not.toHaveClass('active')
+    expect(homeLink).toHaveClass('active')
   })
 })

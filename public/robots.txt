@@ -1,2 +1,66 @@
 User-Agent: *
-Allow: /
+Disallow: /
+
+# Block AI bots and scrapers
+User-Agent: GPTBot
+Disallow: /
+
+User-Agent: ChatGPT-User
+Disallow: /
+
+User-Agent: CCBot
+Disallow: /
+
+User-Agent: anthropic-ai
+Disallow: /
+
+User-Agent: Claude-Web
+Disallow: /
+
+User-Agent: Google-Extended
+Disallow: /
+
+User-Agent: PerplexityBot
+Disallow: /
+
+User-Agent: Applebot-Extended
+Disallow: /
+
+User-Agent: Omgilibot
+Disallow: /
+
+User-Agent: FacebookBot
+Disallow: /
+
+User-Agent: facebookexternalhit
+Disallow: /
+
+User-Agent: TwitterBot
+Disallow: /
+
+User-Agent: LinkedInBot
+Disallow: /
+
+User-Agent: WhatsApp
+Disallow: /
+
+User-Agent: Bytespider
+Disallow: /
+
+User-Agent: DotBot
+Disallow: /
+
+User-Agent: SemrushBot
+Disallow: /
+
+User-Agent: AhrefsBot
+Disallow: /
+
+User-Agent: MJ12bot
+Disallow: /
+
+User-Agent: PetalBot
+Disallow: /
+
+User-Agent: BLEXBot
+Disallow: /
