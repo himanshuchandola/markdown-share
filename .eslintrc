@@ -72,6 +72,12 @@
       }
     },
     {
+      "files": ["next-env.d.ts"],
+      "rules": {
+        "@typescript-eslint/triple-slash-reference": "off"
+      }
+    },
+    {
       "files": ["**/*.test.js", "**/*.test.jsx"],
       "env": {
         "jest": true

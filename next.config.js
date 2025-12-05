@@ -15,6 +15,10 @@ const securityHeaders = [
     key: 'X-Content-Type-Options',
     value: 'nosniff',
   },
+  {
+    key: 'X-Robots-Tag',
+    value: 'noindex, nofollow, noarchive, nosnippet, noimageindex',
+  },
 ]
 
 /* eslint import/order: "off" */
@@ -39,10 +43,6 @@ const nextConfig = withPWA({
   },
   env: {
     APP_URL: process.env.APP_URL,
-    GISCUS_USER: process.env.GISCUS_USER,
-    GISCUS_REPO: process.env.GISCUS_REPO,
-    GISCUS_REPO_ID: process.env.GISCUS_REPO_ID,
-    GISCUS_CATEGORY_ID: process.env.GISCUS_CATEGORY_ID,
   },
   webpack(config) {
     config.module.rules.push({

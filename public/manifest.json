@@ -2,7 +2,7 @@
   "name": "md share",
   "short_name": "mdShare",
   "description": "Best way to share your markdown files.",
-  "start_url": "https://mdshare.vercel.app/",
+  "start_url": "/",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "dir": "auto",

@@ -10,13 +10,26 @@
     transform 0.3s ease,
     color var(--default-delay),
     background-color var(--default-delay),
-    box-shadow var(--default-delay);
+    box-shadow var(--default-delay),
+    backdrop-filter 0.3s ease;
 
-  box-shadow: 0 2px 4px var(--header-shadow);
+  box-shadow: 0 2px 8px var(--header-shadow);
   width: 100%;
   padding: 0 2rem;
 
   background-color: var(--color-bg);
+  backdrop-filter: blur(10px) saturate(180%);
+  backdrop-filter: blur(10px) saturate(180%);
+}
+
+@media (prefers-color-scheme: light) {
+  .header {
+    background-color: rgb(246 248 250 / 85%);
+  }
+}
+
+[data-theme='dark'] .header {
+  background-color: rgb(1 4 9 / 85%);
 }
 
 .hidden {

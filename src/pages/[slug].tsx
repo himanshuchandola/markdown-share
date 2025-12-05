@@ -1,6 +1,4 @@
 import { Source_Code_Pro } from 'next/font/google'
-import { useTheme } from 'next-themes'
-import Giscus from '@giscus/react'
 
 import { ScrollProgressBar } from '@ui/ScrollProgressBar'
 import { Layout } from '@ui/Layout'
@@ -18,10 +16,6 @@ const sourceCodePro = Source_Code_Pro({
 })
 
 const APP_URL = process.env.APP_URL
-const GISCUS_USER = process.env.GISCUS_USER
-const GISCUS_REPO = process.env.GISCUS_REPO
-const GISCUS_REPO_ID = process.env.GISCUS_REPO_ID
-const GISCUS_CATEGORY_ID = process.env.GISCUS_CATEGORY_ID
 
 export type PostPageProps = {
   page: IHTMLPage
@@ -50,8 +44,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 export default function PostPage({ page }: PostPageProps) {
-  const { html, title, isCommentable } = page
-  const { theme } = useTheme()
+  const { html, title } = page
 
   return (
     <>
@@ -62,25 +55,6 @@ export default function PostPage({ page }: PostPageProps) {
           className={`${styles.body} ${sourceCodePro.variable}`}
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        {isCommentable ? (
-          <Giscus
-            id="comments"
-            repo={`${GISCUS_USER}/${GISCUS_REPO}`}
-            repoId={GISCUS_REPO_ID as string}
-            category="Announcements"
-            categoryId={GISCUS_CATEGORY_ID as string}
-            mapping="pathname"
-            strict="0"
-            reactionsEnabled="1"
-            emitMetadata="0"
-            inputPosition="top"
-            theme={theme}
-            lang="en"
-            loading="lazy"
-          />
-        ) : (
-          <></>
-        )}
       </Layout>
     </>
   )
