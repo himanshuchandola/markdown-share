@@ -1,7 +1,5 @@
-import { Document } from 'mongoose'
-
 // Page
-export interface IPage extends Document {
+export interface IPage {
   _id: string // a.k.a. `slug`
   title?: string
   author?: string
