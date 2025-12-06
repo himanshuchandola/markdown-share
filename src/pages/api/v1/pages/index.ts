@@ -2,7 +2,7 @@ import Page from '@models/pageModel'
 import { generateUniqueSlug } from '@helpers/generateUniqueSlug'
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { IPage, IPostPageRequest } from '@types'
+import type { IPageDocument, IPostPageRequest } from '@types'
 
 // Route: /api/v1/pages
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const { created, slug } = await generateUniqueSlug(req, fileName)
 
       if (!created) {
-        const page: IPage = new Page({
+        const page: IPageDocument = new Page({
           _id: slug,
           title: fileName,
           text: text,
