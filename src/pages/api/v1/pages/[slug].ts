@@ -1,3 +1,4 @@
+import { connectDB } from '@core/db'
 import Page from '@models/pageModel'
 
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -5,6 +6,15 @@ import type { IPage } from '@types'
 
 // Route: /api/v1/pages/{slug}
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Ensure MongoDB connection before handling request
+  try {
+    await connectDB()
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Database connection failed. Please check your MongoDB configuration.',
+    })
+  }
   res.setHeader('Cache-Control', 'public, max-age=31536000, must-revalidate')
 
   // Method: GET
