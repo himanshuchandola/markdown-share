@@ -6,7 +6,7 @@ const MONGO_DATABASE = process.env.MONGO_DATABASE || 'test'
 const MONGO_USER = process.env.MONGO_USER || ''
 const MONGO_PASSWD = process.env.MONGO_PASSWD || ''
 
-let MONGO_URI
+let MONGO_URI: string
 if (MONGO_USER && MONGO_PASSWD) {
   MONGO_URI =
     process.env.MONGO_URI ||
