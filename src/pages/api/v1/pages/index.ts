@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
       const { text, fileName, expireAt, isCommentable } = req.body as IPostPageRequest
-      const { created, slug } = await generateUniqueSlug(req, fileName)
+      const { created, slug } = await generateUniqueSlug(fileName)
 
       if (!created) {
         const page: IPageDocument = new Page({

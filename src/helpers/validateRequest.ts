@@ -6,6 +6,7 @@ const API_SECRET = process.env.API_SECRET
 /**
  * Validates that the request comes from the allowed origin
  * Same-origin requests are allowed automatically
+ * Server-side requests (no origin/referer) are allowed
  * Cross-origin requests require API_SECRET if set
  */
 export function validateRequest(
@@ -20,6 +21,11 @@ export function validateRequest(
   const allowedOrigin = new URL(APP_URL).origin
   const origin = req.headers.origin
   const referer = req.headers.referer
+
+  // Allow server-side requests (no origin or referer) - these come from getServerSideProps
+  if (!origin && !referer) {
+    return { isValid: true }
+  }
 
   // Check if request is from allowed origin
   let isSameOrigin = false
