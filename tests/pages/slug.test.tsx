@@ -6,6 +6,9 @@ import type { IPage, IHTMLPage, IGetPageResponse, IErrorResponse } from '@types'
 
 const appUrl = process.env.APP_URL
 
+const mockFindById = jest.fn()
+const mockConnectDB = jest.fn()
+
 jest.mock('next/head', () => {
   return {
     __esModule: true,
@@ -25,6 +28,17 @@ jest.mock('@ui/ScrollProgressBar', () => ({
       Mock ScrollProgressBar
     </div>
   ),
+}))
+
+jest.mock('@core/db', () => ({
+  connectDB: () => mockConnectDB(),
+}))
+
+jest.mock('@models/pageModel', () => ({
+  __esModule: true,
+  default: {
+    findById: (slug: string) => mockFindById(slug),
+  },
 }))
 
 describe('[slug] page', () => {
@@ -115,43 +129,43 @@ time.now()
 </code></pre>
 `,
   } as IHTMLPage
-  const originalFetch = global.fetch
 
   beforeEach(() => {
-    global.fetch = jest.fn()
+    jest.clearAllMocks()
   })
 
-  afterEach(() => {
-    global.fetch = originalFetch
-  })
-
-  it('should return notFound for failed fetch', async () => {
-    ;(global.fetch as jest.Mock).mockResolvedValueOnce({
-      ok: false,
-      json: async () => ({ success: false }) as IErrorResponse,
+  it('should return notFound when page does not exist', async () => {
+    mockConnectDB.mockResolvedValue(undefined)
+    mockFindById.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(null),
     })
 
     const context = { query: { slug: 'test' }, res: { setHeader: jest.fn() } } as any
     const result = await getServerSideProps(context)
 
     expect(result).toEqual({ notFound: true })
-    expect(global.fetch).toHaveBeenCalledWith(`${appUrl}/api/v1/pages/test`)
+    expect(mockConnectDB).toHaveBeenCalled()
+    expect(mockFindById).toHaveBeenCalledWith('test')
   })
 
-  it('should return page props for successful fetch', async () => {
-    ;(global.fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
-      json: async () =>
-        ({
-          success: true,
-          page: mockPageFromStore,
-        }) as IGetPageResponse,
+  it('should return page props when page exists', async () => {
+    mockConnectDB.mockResolvedValue(undefined)
+    mockFindById.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(mockPageFromStore),
     })
 
     const context = { query: { slug: 'test' }, res: { setHeader: jest.fn() } } as any
     const result = await getServerSideProps(context)
 
     expect(result).toEqual({ props: { page: mockHTMLPage } })
-    expect(global.fetch).toHaveBeenCalledWith(`${appUrl}/api/v1/pages/test`)
+    expect(mockConnectDB).toHaveBeenCalled()
+    expect(mockFindById).toHaveBeenCalledWith('test')
+  })
+
+  it('should return notFound for invalid slug', async () => {
+    const context = { query: { slug: null }, res: { setHeader: jest.fn() } } as any
+    const result = await getServerSideProps(context)
+
+    expect(result).toEqual({ notFound: true })
   })
 })
