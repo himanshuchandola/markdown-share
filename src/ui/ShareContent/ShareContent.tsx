@@ -33,24 +33,36 @@ export const ShareContent = ({ slug }: ShareContentProps) => {
   const fullLink = `${APP_URL}/${slug}`
 
   return (
-    <>
-      <p className={styles.content__text}>Share this link via:</p>
-      <ul>
-        {buttons.map((button) => (
-          <Link
-            className={styles.content__link}
-            title={`Share link via ${button.title}`}
-            href={button.href + fullLink}
-            key={button.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button.svg height={30} width={30} className={styles.content__icon} />
-          </Link>
-        ))}
-      </ul>
-      <p className={styles.content__text}>Or copy link:</p>
-      <CopyLink link={fullLink} />
+    <div className={styles.share_container}>
+      <div className={styles.share_header}>
+        <h2 className={styles.share_title}>Share Your Page</h2>
+        <p className={styles.share_subtitle}>Share this link with others</p>
+      </div>
+
+      <div className={styles.social_section}>
+        <p className={styles.section_label}>Share via</p>
+        <div className={styles.social_grid}>
+          {buttons.map((button) => (
+            <Link
+              className={styles.social_button}
+              title={`Share link via ${button.title}`}
+              href={button.href + fullLink}
+              key={button.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button.svg height={24} width={24} className={styles.social_icon} />
+              <span className={styles.social_label}>{button.title}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.copy_section}>
+        <p className={styles.section_label}>Or copy link</p>
+        <CopyLink link={fullLink} />
+      </div>
+
       <Link
         className={styles.open_button}
         title="Open Link in New Tab"
@@ -59,8 +71,24 @@ export const ShareContent = ({ slug }: ShareContentProps) => {
         rel="noopener noreferrer"
         prefetch
       >
-        open →
+        <span>Open Page</span>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={styles.open_arrow}
+        >
+          <path
+            d="M6 3.5L10.5 8L6 12.5"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </Link>
-    </>
+    </div>
   )
 }

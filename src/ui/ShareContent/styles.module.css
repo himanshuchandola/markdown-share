@@ -1,3 +1,226 @@
+.share_container {
+  flex-direction: column;
+
+  display: flex;
+
+  width: 100%;
+  max-width: 32rem;
+  padding: 0.5rem;
+  gap: 2rem;
+}
+
+.share_header {
+  margin-bottom: 0.5rem;
+
+  text-align: center;
+}
+
+.share_title {
+  margin-bottom: 0.5rem;
+
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-fg);
+  letter-spacing: -0.02em;
+}
+
+.share_subtitle {
+  opacity: 0.7;
+
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-fg);
+}
+
+.social_section,
+.copy_section {
+  flex-direction: column;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.section_label {
+  opacity: 0.6;
+
+  margin-bottom: 0.25rem;
+
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  letter-spacing: 0.05em;
+}
+
+.social_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.75rem;
+
+  width: 100%;
+}
+
+.social_button {
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+
+  overflow: hidden;
+
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem 0.75rem;
+
+  background-color: var(--color-canvas);
+  cursor: pointer;
+
+  text-decoration: none;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+
+    background: linear-gradient(135deg, var(--accent-color), transparent);
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+
+    box-shadow: 0 4px 12px var(--accent-shadow-color);
+
+    background-color: var(--color-canvas);
+
+    &::before {
+      opacity: 0.05;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.social_icon {
+  position: relative;
+  z-index: 1;
+
+  opacity: 0.8;
+
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  fill: var(--color-fg);
+}
+
+.social_button:hover .social_icon,
+.social_button:focus .social_icon {
+  transform: scale(1.1);
+  fill: var(--accent-color);
+}
+
+.social_label {
+  position: relative;
+  z-index: 1;
+
+  opacity: 0.8;
+
+  transition: color 0.2s ease;
+
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-fg);
+}
+
+.social_button:hover .social_label,
+.social_button:focus .social_label {
+  color: var(--accent-color);
+}
+
+.copy_section {
+  margin-top: 0.5rem;
+}
+
+.open_button {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+
+  overflow: hidden;
+
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  margin-top: 0.5rem;
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 0.875rem 1.5rem;
+
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-color));
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-canvas);
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    transition: left 0.5s ease;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 20%), transparent);
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 20px var(--accent-shadow-color);
+
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-color));
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.open_arrow {
+  transition: transform 0.2s ease;
+  stroke: currentcolor;
+}
+
+.open_button:hover .open_arrow,
+.open_button:focus .open_arrow {
+  transform: translateX(4px);
+}
+
+/* Legacy class names for backward compatibility */
 .content__text {
   margin: 15px 0;
 
@@ -19,41 +242,12 @@
 }
 
 .content__icon {
-  transition: fill (--default-delay);
+  transition: fill var(--default-delay);
   fill: var(--color-fg);
 
   &:hover,
   &:focus,
   &:active {
     fill: var(--accent-color);
-  }
-}
-
-.open_button {
-  position: relative;
-
-  display: block;
-
-  transition:
-    color var(--default-delay),
-    border var(--default-delay),
-    background-color var(--default-delay);
-
-  margin-top: 20px;
-  border: 1px solid var(--color-border) !important;
-  border-radius: 8px;
-  padding: 6px;
-
-  background-color: var(--color-bg);
-
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-style: normal !important;
-  text-align: center;
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    background-color: var(--color-canvas);
   }
 }
