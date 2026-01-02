@@ -7,6 +7,7 @@ export interface IPage {
   isCommentable: boolean
   createdAt?: Date
   expireAt?: Date
+  password?: string // Hashed password for editing
 }
 
 // Page with mongoose Document methods
@@ -41,6 +42,7 @@ export interface IPostPageRequest {
   fileName: string
   isCommentable?: boolean
   expireAt?: Date
+  password?: string
 }
 
 // Success Response from POST:/api/v1/pages/

@@ -1,0 +1,190 @@
+.edit_container {
+  flex-direction: column;
+
+  display: flex;
+
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 2rem 1rem;
+  gap: 1.5rem;
+}
+
+.edit_header {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.edit_title {
+  margin: 0;
+
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-fg);
+}
+
+.edit_actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.save_button,
+.cancel_button {
+  transition: all 0.2s ease;
+
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.save_button {
+  border: 2px solid var(--accent-color);
+
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-color));
+
+  color: var(--color-canvas);
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 20px var(--accent-shadow-color);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    transform: none;
+
+    cursor: not-allowed;
+  }
+}
+
+.cancel_button {
+  border: 1.5px solid var(--color-border);
+
+  background-color: var(--color-canvas);
+
+  color: var(--color-fg);
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-bg);
+    border-color: var(--accent-color);
+  }
+}
+
+.save_success {
+  border-radius: 8px;
+  padding: 1rem;
+
+  background-color: rgb(16 185 129);
+
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+.password_modal {
+  flex-direction: column;
+
+  display: flex;
+
+  width: 100%;
+  max-width: 24rem;
+  padding: 0.5rem;
+  gap: 1.5rem;
+}
+
+.password_title {
+  margin: 0;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-fg);
+}
+
+.password_subtitle {
+  opacity: 0.7;
+
+  margin: 0;
+
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--color-fg);
+}
+
+.password_form {
+  flex-direction: column;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.password_input {
+  transition: all 0.2s ease;
+
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+
+  background-color: var(--color-canvas);
+
+  font-size: 1rem;
+  color: var(--color-fg);
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent-color);
+
+    box-shadow: 0 0 0 3px var(--accent-shadow-color);
+  }
+}
+
+.password_error {
+  border-radius: 6px;
+  padding: 0.75rem;
+
+  background-color: rgb(254 226 226);
+
+  font-size: 0.875rem;
+  text-align: center;
+  color: rgb(220 38 38);
+}
+
+.password_actions {
+  justify-content: flex-end;
+
+  display: flex;
+  gap: 0.75rem;
+}
+
+.submit_button {
+  transition: all 0.2s ease;
+
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-color));
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-canvas);
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 20px var(--accent-shadow-color);
+  }
+}

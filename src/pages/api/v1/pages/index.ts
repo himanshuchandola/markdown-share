@@ -1,3 +1,5 @@
+import bcrypt from 'bcryptjs'
+
 import { connectDB } from '@core/db'
 import Page from '@models/pageModel'
 import { generateUniqueSlug } from '@helpers/generateUniqueSlug'
@@ -32,8 +34,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log(`${new Date().toUTCString()} | Call endpoint: ${req.method} ${req.url}`)
 
     try {
-      const { text, fileName, expireAt, isCommentable } = req.body as IPostPageRequest
+      const { text, fileName, expireAt, isCommentable, password } = req.body as IPostPageRequest
       const { created, slug } = await generateUniqueSlug(fileName)
+
+      // Hash password if provided
+      let hashedPassword: string | undefined
+      if (password) {
+        hashedPassword = await bcrypt.hash(password, 10)
+      }
 
       if (!created) {
         const page: IPageDocument = new Page({
@@ -41,7 +49,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           title: fileName,
           text: text,
           expireAt: expireAt,
-          isCommentable: isCommentable,
+          isCommentable: isCommentable || false,
+          password: hashedPassword,
         })
         await page.save()
         res.setHeader('Cache-Control', 'public, max-age=31536000, must-revalidate')
@@ -49,7 +58,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       } else {
         res.status(200).json({ success: true, status: 'Already exists', slug: slug })
       }
-    } catch (error) {
+    } catch (error: any) {
       res.status(500).json({ success: false, message: error.message })
     }
   }
