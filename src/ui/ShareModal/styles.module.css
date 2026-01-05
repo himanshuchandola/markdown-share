@@ -63,9 +63,36 @@
   gap: 0.5rem;
 }
 
+.password_header {
+  align-items: flex-start;
+
+  display: flex;
+  gap: 0.5rem;
+}
+
 .form_checkbox {
   margin: 0;
   width: 100%;
+}
+
+.form_checkbox_inline {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.password_label {
+  opacity: 0.9;
+
+  margin: 0;
+  padding-top: 0.125rem;
+
+  cursor: pointer;
+  user-select: none;
+
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-fg);
+  flex: 1;
 }
 
 .password_description {

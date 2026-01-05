@@ -6,7 +6,7 @@
   width: 100%;
   max-width: 32rem;
   padding: 0.5rem;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .share_header {
@@ -43,7 +43,7 @@
 .section_label {
   opacity: 0.6;
 
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 
   font-size: 0.875rem;
   font-weight: 600;
@@ -52,104 +52,8 @@
   letter-spacing: 0.05em;
 }
 
-.social_grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 0.75rem;
-
-  width: 100%;
-}
-
-.social_button {
-  position: relative;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  display: flex;
-
-  overflow: hidden;
-
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-
-  border: 1.5px solid var(--color-border);
-  border-radius: 12px;
-  padding: 1rem 0.75rem;
-
-  background-color: var(--color-canvas);
-  cursor: pointer;
-
-  text-decoration: none;
-  gap: 0.5rem;
-
-  &::before {
-    content: '';
-
-    position: absolute;
-    inset: 0;
-
-    opacity: 0;
-
-    transition: opacity 0.2s ease;
-
-    background: linear-gradient(135deg, var(--accent-color), transparent);
-  }
-
-  &:hover,
-  &:focus {
-    transform: translateY(-2px);
-    border-color: var(--accent-color);
-
-    box-shadow: 0 4px 12px var(--accent-shadow-color);
-
-    background-color: var(--color-canvas);
-
-    &::before {
-      opacity: 0.05;
-    }
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-}
-
-.social_icon {
-  position: relative;
-  z-index: 1;
-
-  opacity: 0.8;
-
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  fill: var(--color-fg);
-}
-
-.social_button:hover .social_icon,
-.social_button:focus .social_icon {
-  transform: scale(1.1);
-  fill: var(--accent-color);
-}
-
-.social_label {
-  position: relative;
-  z-index: 1;
-
-  opacity: 0.8;
-
-  transition: color 0.2s ease;
-
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--color-fg);
-}
-
-.social_button:hover .social_label,
-.social_button:focus .social_label {
-  color: var(--accent-color);
-}
-
 .copy_section {
-  margin-top: 0.5rem;
+  margin-top: 0;
 }
 
 .open_button {
