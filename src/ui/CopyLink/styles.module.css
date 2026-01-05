@@ -1,61 +1,116 @@
 .copy_link {
-  display: table;
+  align-items: stretch;
 
+  display: flex;
+
+  overflow: hidden;
+
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
   width: 100%;
-}
-
-.copy_link__input {
-  position: relative;
-
-  display: table-cell;
-
-  transition:
-    color var(--default-delay),
-    background-color var(--default-delay),
-    fill var(--default-delay),
-    border var(--default-delay);
-
-  border: 1px solid var(--color-border);
-  border-right-color: rgb(0 0 0 / 0%);
-  border-radius: 8px 0 0 8px;
-  width: calc(100% - 56px);
-  padding: 5px 15px;
 
   background-color: var(--color-canvas);
 
-  font-size: 1.3rem;
+  &:hover,
+  &:focus-within {
+    border-color: var(--accent-color);
+
+    box-shadow: 0 4px 12px var(--accent-shadow-color);
+  }
+}
+
+.copy_link__input {
+  transition: color var(--default-delay);
+
+  outline: none;
+  border: none;
+  border-radius: 0;
+  padding: 0.875rem 1rem;
+
+  background-color: transparent;
+
+  font-size: 0.95rem;
+  font-family: inherit;
   color: var(--color-fg);
+  flex: 1;
+
+  &::selection {
+    background-color: var(--accent-color);
+
+    color: var(--color-canvas);
+  }
+
+  &::placeholder {
+    opacity: 0.5;
+
+    color: var(--color-fg);
+  }
 }
 
 .copy_link__button {
-  transition: border var(--default-delay);
+  justify-content: center;
+  align-items: center;
 
-  border: 1px solid var(--color-border);
-  border-radius: 0 8px 8px 0;
-  padding: 5px 15px;
+  display: flex;
 
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  border: none;
+  border-left: 1.5px solid var(--color-border);
+  border-radius: 0;
+  min-width: 3.5rem;
+  padding: 0.875rem 1.25rem;
+
+  background-color: var(--color-canvas);
   cursor: pointer;
-
-  font-size: 1.3rem;
 
   &:hover,
   &:focus {
-    border-color: var(--color-fg);
+    background-color: var(--color-bg);
+    border-left-color: var(--accent-color);
   }
 
-  &.active {
-    border-color: var(--accent-color);
+  &:active {
+    transform: scale(0.95);
   }
-}
-
-.clipboard_copy_icon {
-  transition: fill var(--default-delay);
-
-  fill: var(--color-fg);
 }
 
 .clipboard_check_icon {
-  transition: fill var(--default-delay);
-
+  transition: fill 0.2s ease;
   fill: var(--accent-color);
+}
+
+.clipboard_copy_icon {
+  opacity: 0.7;
+
+  transition: fill 0.2s ease, transform 0.2s ease;
+  fill: var(--color-fg);
+
+  .copy_link__button:hover &,
+  .copy_link__button:focus & {
+    fill: var(--accent-color);
+
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.copy_link__button.active .clipboard_check_icon {
+  fill: var(--color-canvas);
+
+  animation: check-bounce 0.4s ease;
+}
+
+@keyframes check-bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
 }
