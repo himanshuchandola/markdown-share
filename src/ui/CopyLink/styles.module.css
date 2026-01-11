@@ -7,8 +7,8 @@
 
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
-  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
-  border: 1.5px solid var(--color-border);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  border: 2px solid var(--color-border);
   border-radius: 12px;
   width: 100%;
 
@@ -59,7 +59,7 @@
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
   border: none;
-  border-left: 1.5px solid var(--color-border);
+  border-left: 2px solid var(--color-border);
   border-radius: 0;
   min-width: 3.5rem;
   padding: 0.875rem 1.25rem;
@@ -84,9 +84,9 @@
 }
 
 .clipboard_copy_icon {
-  opacity: 0.7;
+  opacity: 0.85;
 
-  transition: fill 0.2s ease, transform 0.2s ease;
+  transition: fill 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
   fill: var(--color-fg);
 
   .copy_link__button:hover &,

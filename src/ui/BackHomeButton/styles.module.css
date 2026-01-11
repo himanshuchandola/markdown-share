@@ -6,10 +6,12 @@
   transition:
     color var(--default-delay) ease-in-out,
     background-color var(--default-delay) ease-in-out,
-    border var(--default-delay) ease-in-out !important;
+    border var(--default-delay) ease-in-out,
+    box-shadow 0.2s ease-in-out !important;
 
   outline: none;
   margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0 0 0 / 15%);
   border: 2px solid var(--color-fg) !important;
   padding: 10px 25px;
 
@@ -23,11 +25,18 @@
 
   &:hover,
   &:focus {
-    border: 2px solid var(--color-fg) !important;
+    transform: translateY(-2px);
 
-    background-color: var(--color-bg) !important;
+    box-shadow: 0 4px 12px var(--accent-shadow-color);
+    border: 2px solid var(--accent-color) !important;
 
-    color: var(--color-fg) !important;
+    background-color: var(--accent-color) !important;
+
+    color: var(--color-canvas) !important;
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   @media only screen and (max-width: 768px) {
