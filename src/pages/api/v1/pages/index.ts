@@ -1,12 +1,22 @@
 import { connectDB } from '@lib/db'
 import Page from '@models/pageModel'
 import { generateUniqueSlug } from '@utils/generateUniqueSlug'
+import { validateRequest } from '@utils/validateRequest'
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 import type { IPageDocument, IPostPageRequest } from '@interfaces'
 
 // Route: /api/v1/pages
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Validate request origin and API secret
+  const validation = validateRequest(req, res)
+  if (!validation.isValid) {
+    return res.status(403).json({
+      success: false,
+      message: validation.error || 'Access denied',
+    })
+  }
+
   // Ensure MongoDB connection before handling request
   try {
     await connectDB()

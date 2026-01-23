@@ -66,6 +66,7 @@ You can deploy this application to any hosting platform (also don't forget to se
 |  `MONGO_PASSWD`  | password is used to authenticate the user who is accessing the database                                                                |
 | `MONGO_DATABASE` | name of the mongodb database that your application will connect to                                                                     |
 |   `MONGO_URI`    | you can specify the connection string for a mongodb database instead of the previous variables (has higher priority, empty by default) |
+|   `API_SECRET`   | optional secret key for additional API security. If set, cross-origin requests must include this in X-API-Secret header                |
 
 ## 🔧 Tech Stack
 
