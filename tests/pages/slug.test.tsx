@@ -12,6 +12,7 @@ const mockConnectDB = jest.fn()
 // Helper to create a mock query chain
 const createMockQuery = (execResult: any) => ({
   select: jest.fn().mockReturnThis(),
+  lean: jest.fn().mockReturnThis(),
   exec: jest.fn().mockResolvedValue(execResult),
 })
 
@@ -48,11 +49,13 @@ jest.mock('@models/pageModel', () => ({
       if (result && typeof result === 'object' && 'exec' in result) {
         return {
           select: jest.fn().mockReturnThis(),
+          lean: jest.fn().mockReturnThis(),
           exec: result.exec,
         }
       }
       return {
         select: jest.fn().mockReturnThis(),
+        lean: jest.fn().mockReturnThis(),
         exec: jest.fn().mockResolvedValue(result),
       }
     },
