@@ -70,7 +70,7 @@ export default function PostPage({ page }: PostPageProps) {
       <Layout>
         <>
           <ScrollProgressBar />
-          {hasPassword && (
+          {hasPassword && _id && (
             <div className={pageStyles.edit_container}>
               <Link href={`/${_id}/edit`} className={pageStyles.edit_button}>
                 <svg
