@@ -1,0 +1,27 @@
+{
+  "name": "md share",
+  "short_name": "mdShare",
+  "description": "Best way to share your markdown files.",
+  "start_url": "https://mdshare.vercel.app/",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "dir": "auto",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "prefer_related_applications": false
+}

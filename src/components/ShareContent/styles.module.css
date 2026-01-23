@@ -1,0 +1,59 @@
+.content__text {
+  margin: 15px 0;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.content__link {
+  outline-offset: 1rem;
+  margin: 1rem;
+  border-bottom: none;
+
+  line-height: 3rem;
+
+  &:active {
+    top: 2px;
+    left: 2px;
+  }
+}
+
+.content__icon {
+  transition: fill (--default-delay);
+  fill: var(--color-fg);
+
+  &:hover,
+  &:focus,
+  &:active {
+    fill: var(--accent-color);
+  }
+}
+
+.open_button {
+  position: relative;
+
+  display: block;
+
+  transition:
+    color var(--default-delay),
+    border var(--default-delay),
+    background-color var(--default-delay);
+
+  margin-top: 20px;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 8px;
+  padding: 6px;
+
+  background-color: var(--color-bg);
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: normal !important;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-canvas);
+  }
+}
