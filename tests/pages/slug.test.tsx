@@ -6,10 +6,6 @@ import type { IPage, IHTMLPage, IGetPageResponse, IErrorResponse } from '@interf
 
 const appUrl = process.env.APP_URL
 
-jest.mock('@giscus/react', () => ({
-  execSync: jest.fn(),
-}))
-
 jest.mock('next/head', () => {
   return {
     __esModule: true,
@@ -25,7 +21,7 @@ jest.mock('next/router', () => ({
 
 jest.mock('@components/ScrollProgressBar', () => ({
   ScrollProgressBar: () => (
-    <div role="scrollbar" aria-controls="main-content">
+    <div role="scrollbar" aria-controls="main-content" aria-valuenow={0}>
       Mock ScrollProgressBar
     </div>
   ),

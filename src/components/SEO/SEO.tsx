@@ -8,7 +8,7 @@ const SITE_URL = process.env.APP_URL
 
 export const SEO = ({
   title = '',
-  author = 'donBarbos',
+  author = '',
   description = 'Best way to share your markdown files.',
   image = '/og.png',
   lang = 'en',
@@ -28,7 +28,14 @@ export const SEO = ({
   return (
     <Head>
       <title>{seo.title}</title>
-      <meta name="robots" content="index,follow" />
+      <meta
+        name="robots"
+        content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache"
+      />
+      <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+      <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+      <meta name="slurp" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+      <meta name="duckduckbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
       <meta name="description" content={seo.description} />
       <meta name="keywords" content="markdown, share, mdshare, md, md share, markdown share" />
       <link rel="canonical" href={seo.url} />
@@ -37,6 +44,7 @@ export const SEO = ({
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.imageUrl} />
+      <meta name="twitter:robots" content="noindex, nofollow" />
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:url" content={seo.url} />
@@ -44,6 +52,7 @@ export const SEO = ({
       <meta property="og:locale" content={seo.lang} />
       <meta property="og:site_name" content={seo.title} />
       <meta property="og:image" content={seo.imageUrl} />
+      <meta property="og:robots" content="noindex, nofollow" />
     </Head>
   )
 }

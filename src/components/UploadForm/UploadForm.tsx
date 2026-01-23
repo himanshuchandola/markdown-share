@@ -1,6 +1,5 @@
 import { DragEvent, FormEvent, useRef, useState } from 'react'
 
-import { Checkbox } from '@components/Checkbox'
 import { Spinner } from '@components/Spinner'
 import { Select } from '@components/Select'
 
@@ -36,7 +35,6 @@ export const UploadForm = () => {
   const [result, setResult] = useState<IPostPageResponse | IErrorResponse | null>(null)
   const [isDragging, setIsDragging] = useState<boolean>(false)
   const [expireAt, setExpireAt] = useState<Date | null>(null)
-  const [allowComments, setAllowComments] = useState<boolean>(false)
 
   const fileInput = useRef<any>(null)
 
@@ -58,7 +56,7 @@ export const UploadForm = () => {
       const requestBody: IPostPageRequest = {
         text: reader.result as string,
         fileName: fileInput.current.value.replace('C:\\fakepath\\', '').replace(/\.[^/.]+$/, ''),
-        isCommentable: allowComments,
+        isCommentable: false,
         ...(expireAt instanceof Date ? { expireAt } : {}),
       }
 
@@ -128,7 +126,7 @@ export const UploadForm = () => {
           onDrop={handleDrop}
         >
           <span className={styles.drop__title}>Drag & drop file here</span>
-          or
+          <span className={styles.drop__or}>or</span>
           <input
             className={styles.form__input}
             type="file"
@@ -148,14 +146,6 @@ export const UploadForm = () => {
           defaultValue={undefined}
           label="Expiration date"
           className={styles.form__select}
-        />
-        <Checkbox
-          id="allow-comments"
-          name="page_allow_comments"
-          value={allowComments}
-          onChange={() => setAllowComments(!allowComments)}
-          label="Allow comments on this page"
-          className={styles.form__checkbox}
         />
         <SubmitButton isActive={isModalActive} />
       </form>

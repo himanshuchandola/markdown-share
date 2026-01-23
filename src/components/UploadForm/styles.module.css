@@ -5,10 +5,13 @@
   align-items: center;
 
   display: flex;
+
+  width: 100%;
+  padding: 0 1rem;
 }
 
 .form * {
-  --max-w: 35rem;
+  --max-w: 40rem;
 
   transition:
     color var(--default-delay),
@@ -22,7 +25,7 @@
 
   display: flex;
 
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   width: 100%;
   max-width: var(--max-w);
 }
@@ -33,7 +36,7 @@
 
   display: flex;
 
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   width: 100%;
   max-width: var(--max-w);
 }
@@ -46,15 +49,19 @@
 
   display: flex;
 
-  margin-top: 1rem;
-  border: 2px solid var(--color-border);
-  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
+  border: 2px dashed var(--color-border);
+  border-radius: 16px;
   min-width: 5rem;
   width: 100%;
   max-width: var(--max-w);
-  min-height: 10rem;
-  height: 32vh;
-  max-height: 30rem;
+  min-height: 12rem;
+  height: 35vh;
+  max-height: 32rem;
+  padding: 2rem;
 
   background-color: var(--color-canvas);
   cursor: pointer;
@@ -63,30 +70,59 @@
 
   &:hover,
   &:focus {
-    transition: border 0s;
+    transform: translateY(-2px);
 
+    box-shadow: 0 4px 20px var(--accent-shadow-color);
+
+    background-color: var(--color-canvas);
     border-color: var(--accent-color);
+    border-style: solid;
   }
 }
 
 .drop__title {
-  margin-bottom: 20px;
+  align-items: center;
+
+  display: flex;
+
+  margin-bottom: 8px;
 
   cursor: pointer;
 
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-fg);
+  gap: 0.5rem;
+}
+
+.drop__title::before {
+  content: '📄';
+
+  filter: grayscale(0.3);
+
+  font-size: 1.5rem;
 }
 
 .form_button {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  width: 100%;
   max-width: var(--max-w);
+}
+
+.drop__or {
+  opacity: 0.6;
+
+  margin: 8px 0;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-fg);
 }
 
 .form__input {
   transition: color var(--default-delay), background-color var(--default-delay);
 
-  margin-top: 12px;
+  margin-top: 8px;
   width: 100%;
   max-width: 18rem;
 
@@ -99,21 +135,41 @@
   transition:
     color var(--default-delay),
     background-color var(--default-delay),
-    border var(--default-delay);
+    border var(--default-delay),
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   margin-right: 1rem;
-  border-width: 0;
-
   border-radius: 10px;
   padding: 10px 20px;
 
   background-color: var(--color-fg);
+  cursor: pointer;
 
+  font-weight: 600;
   color: var(--color-bg);
+  border-width: 0;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
 
 .dragging {
-  transition: background-color 0s;
+  transform: scale(1.02);
+
+  transition: all 0.2s ease;
+
+  box-shadow: 0 6px 20px var(--accent-shadow-color);
 
   background-color: var(--color-hover-canvas);
+  border-color: var(--accent-color);
+  border-style: solid;
 }

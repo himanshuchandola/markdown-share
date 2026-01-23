@@ -8,11 +8,7 @@ import { BurgerMenu } from '@components/BurgerMenu'
 
 import styles from './styles.module.css'
 
-const pages = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-]
+const pages = [{ href: '/', label: 'Home' }]
 
 export const Navbar = () => {
   const location: string = useRouter().pathname.toString()
@@ -20,9 +16,9 @@ export const Navbar = () => {
 
   return (
     <nav className={styles.navbar} role="navigation">
-      <a className={styles.navbar__logo} href="#">
+      <Link className={styles.navbar__logo} href="/">
         .mdShare
-      </a>
+      </Link>
       <ul className={isActive ? `${styles.navbar__menu} ${styles.active}` : styles.navbar__menu}>
         {pages.map((page) => (
           <li className={styles.navbar__item} key={page.href}>

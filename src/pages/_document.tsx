@@ -4,6 +4,12 @@ const Document = () => {
   return (
     <Html lang="en">
       <Head>
+        <meta
+          name="robots"
+          content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache"
+        />
+        <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+        <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
         <meta name="application-name" content="md share" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

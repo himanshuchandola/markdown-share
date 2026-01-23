@@ -1,5 +1,4 @@
 import { Header } from '@components/Header'
-import { Footer } from '@components/Footer'
 import { ScrollToTop } from '@components/ScrollToTop'
 
 import styles from './styles.module.css'
@@ -13,7 +12,6 @@ export const Layout = ({ children }: LayoutProps) => {
       <main id="main-content" className={styles.main}>
         {children}
       </main>
-      <Footer />
       <ScrollToTop />
     </div>
   )

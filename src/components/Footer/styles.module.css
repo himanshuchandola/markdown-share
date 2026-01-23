@@ -17,10 +17,4 @@
   & a:active {
     color: var(--accent-color);
   }
-
-  &::before {
-    content: '©';
-
-    margin-right: 6px;
-  }
 }
