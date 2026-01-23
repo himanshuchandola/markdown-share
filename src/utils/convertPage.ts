@@ -11,7 +11,7 @@ function sanitizeHTML(html: string): string {
 }
 
 export function convertPageToHTML(page: IPage): IHTMLPage {
-  const { text, password, ...rest } = page
+  const { text, password, createdAt, expireAt, ...rest } = page
 
   const md = markdownit({
     highlight: function (str, lang) {
@@ -23,9 +23,23 @@ export function convertPageToHTML(page: IPage): IHTMLPage {
     },
   })
 
-  return {
-    ...rest,
+  // Explicitly construct IHTMLPage to ensure no Date objects or undefined values
+  // Next.js requires all props to be JSON-serializable (no undefined, no Date objects)
+  const htmlPage: IHTMLPage = {
+    _id: rest._id,
+    isCommentable: rest.isCommentable,
     html: sanitizeHTML(md.render(text)),
     hasPassword: !!password,
   }
+
+  // Only include optional fields if they have values (omit undefined)
+  if (rest.title !== undefined && rest.title !== null) {
+    htmlPage.title = rest.title
+  }
+
+  if (rest.author !== undefined && rest.author !== null) {
+    htmlPage.author = rest.author
+  }
+
+  return htmlPage
 }

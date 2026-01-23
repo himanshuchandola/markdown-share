@@ -58,7 +58,6 @@
 
 .open_button {
   position: relative;
-  z-index: 1;
   justify-content: center;
   align-items: center;
 
@@ -86,7 +85,7 @@
     content: '';
 
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     top: 0;
     left: -100%;
 
@@ -95,17 +94,21 @@
     width: 100%;
     height: 100%;
 
-    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 20%), transparent);
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 15%), transparent);
   }
 
   & > span {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+
+    color: inherit;
   }
 
   & > svg {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+
+    color: inherit;
   }
 
   &:hover,
@@ -117,6 +120,14 @@
     background: var(--accent-color);
 
     color: var(--color-canvas);
+
+    & > span {
+      color: var(--color-canvas);
+    }
+
+    & > svg {
+      color: var(--color-canvas);
+    }
 
     &::before {
       left: 100%;

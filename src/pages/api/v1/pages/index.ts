@@ -31,32 +31,60 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // Create Page
   // Method: POST
   if (req.method === 'POST') {
-    console.log(`${new Date().toUTCString()} | Call endpoint: ${req.method} ${req.url}`)
-
     try {
       const { text, fileName, expireAt, isCommentable, password } = req.body as IPostPageRequest
       const { created, slug } = await generateUniqueSlug(fileName)
 
       // Hash password if provided
       let hashedPassword: string | undefined
-      if (password) {
+      if (password && password.trim()) {
         hashedPassword = await bcrypt.hash(password, 10)
       }
 
       if (!created) {
-        const page: IPageDocument = new Page({
+        // Create new page - include password in initial data if provided
+        const pageData: any = {
           _id: slug,
           title: fileName,
           text: text,
           expireAt: expireAt,
           isCommentable: isCommentable || false,
-          password: hashedPassword,
-        })
+        }
+
+        // Include password if provided
+        if (hashedPassword) {
+          pageData.password = hashedPassword
+        }
+
+        const page: IPageDocument = new Page(pageData)
+
+        // Ensure password is set if hashed (fallback)
+        if (hashedPassword && !page.password) {
+          ;(page as any).password = hashedPassword
+        }
+
         await page.save()
+
         res.setHeader('Cache-Control', 'public, max-age=31536000, must-revalidate')
         res.status(201).json({ success: true, status: 'Created', slug: slug })
       } else {
-        res.status(200).json({ success: true, status: 'Already exists', slug: slug })
+        // Page already exists - update it with new content and password if provided
+        const existingPage: IPageDocument | null = await Page.findById(slug).exec()
+        if (existingPage) {
+          existingPage.text = text
+          existingPage.title = fileName
+          existingPage.expireAt = expireAt
+          existingPage.isCommentable = isCommentable || false
+          // Update password if provided
+          if (hashedPassword) {
+            existingPage.password = hashedPassword
+          }
+          await existingPage.save()
+          res.setHeader('Cache-Control', 'public, max-age=31536000, must-revalidate')
+          res.status(200).json({ success: true, status: 'Updated', slug: slug })
+        } else {
+          res.status(200).json({ success: true, status: 'Already exists', slug: slug })
+        }
       }
     } catch (error: any) {
       res.status(500).json({ success: false, message: error.message })

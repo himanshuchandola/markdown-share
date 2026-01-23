@@ -8,7 +8,7 @@ const pageSchema = new db.Schema({
   isCommentable: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
   expireAt: { type: Date, required: false, expires: 3600 },
-  password: { type: String, required: false, trim: true }, // Hashed password for editing
+  password: { type: String, required: false, trim: false }, // Hashed password for editing (don't trim - bcrypt hashes contain special chars)
 })
 
 export default db.models.pages || db.model('pages', pageSchema)

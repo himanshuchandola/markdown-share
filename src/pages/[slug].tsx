@@ -38,14 +38,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
     // Connect to database and fetch page directly
     await connectDB()
-    // Explicitly select password field to check if page has password protection
-    const page: IPage | null = await Page.findById(slug).select('+password').exec()
+    // Fetch page with all fields including password
+    const pageDoc = await Page.findById(slug).lean().exec()
 
-    if (!page) {
+    if (!pageDoc || Array.isArray(pageDoc)) {
       return {
         notFound: true,
       }
     }
+
+    // Convert to IPage type - lean() returns plain object with all fields
+    const page = pageDoc as unknown as IPage
 
     const htmlPage = convertPageToHTML(page)
 
@@ -71,7 +74,7 @@ export default function PostPage({ page }: PostPageProps) {
       <Layout>
         <>
           <ScrollProgressBar />
-          {hasPassword && _id && (
+          {hasPassword === true && _id && (
             <div className={pageStyles.edit_container}>
               <Link href={`/${_id}/edit`} className={pageStyles.edit_button}>
                 <svg

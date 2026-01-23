@@ -31,8 +31,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   // Method: GET
   if (req.method === 'GET') {
-    console.log(`${new Date().toUTCString()} | Call endpoint: ${req.method} ${req.url}`)
-
     try {
       const { slug } = req.query
       const page: IPage = await Page.findById(slug).exec()
