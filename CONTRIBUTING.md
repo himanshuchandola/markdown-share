@@ -16,15 +16,15 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 Make sure you run
 
-- `yarn install`
-- `yarn prepare`
-- `yarn prettier`
-- `yarn lint:fix`
-- `yarn build`
+- `pnpm install`
+- `pnpm prepare`
+- `pnpm prettier`
+- `pnpm lint:fix`
+- `pnpm build`
 
 ### Styleguide
 
-To format files according to the rules, run `yarn lint:fix`, `yarn lint` - just show all the errors and warnings.
+To format files according to the rules, run `pnpm lint:fix`, `pnpm lint` - just show all the errors and warnings.
 
 Note: don't forget to write interfaces to objects
 
