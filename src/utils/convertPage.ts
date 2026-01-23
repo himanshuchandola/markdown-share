@@ -11,7 +11,7 @@ function sanitizeHTML(html: string): string {
 }
 
 export function convertPageToHTML(page: IPage): IHTMLPage {
-  const { text, ...rest } = page
+  const { text, password, ...rest } = page
 
   const md = markdownit({
     highlight: function (str, lang) {
@@ -26,5 +26,6 @@ export function convertPageToHTML(page: IPage): IHTMLPage {
   return {
     ...rest,
     html: sanitizeHTML(md.render(text)),
+    hasPassword: !!password,
   }
 }
