@@ -1,5 +1,6 @@
 import crypto from 'crypto'
 
+import { connectDB } from '@lib/db'
 import Page from '@models/pageModel'
 
 import type { NextApiRequest } from 'next'
@@ -14,6 +15,9 @@ export async function generateUniqueSlug(
   created: boolean // true - is already exists, false - not yet
   slug: string
 }> {
+  // Ensure MongoDB connection
+  await connectDB()
+
   pageName = pageName?.trim().replace(/\s/g, '-')
   const hash = crypto.createHash('sha512').update(JSON.stringify(req.body)).digest('hex')
 

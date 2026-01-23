@@ -17,6 +17,58 @@ if (MONGO_USER && MONGO_PASSWD) {
 
 db.set('strictQuery', false)
 
-db.connect(MONGO_URI)
+// Connection state
+let isConnected = false
 
+// Connection options for serverless environments
+const connectionOptions = {
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+  connectTimeoutMS: 10000,
+  maxPoolSize: 10,
+  minPoolSize: 1,
+}
+
+// Connect to MongoDB
+async function connectDB() {
+  if (isConnected) {
+    return db
+  }
+
+  if (db.connection.readyState === 1) {
+    isConnected = true
+    return db
+  }
+
+  try {
+    await db.connect(MONGO_URI, connectionOptions)
+    isConnected = true
+    console.log('MongoDB connected successfully')
+  } catch (error) {
+    console.error('MongoDB connection error:', error)
+    isConnected = false
+    throw error
+  }
+
+  // Handle connection events
+  db.connection.on('connected', () => {
+    isConnected = true
+    console.log('MongoDB connected')
+  })
+
+  db.connection.on('error', (err) => {
+    isConnected = false
+    console.error('MongoDB connection error:', err)
+  })
+
+  db.connection.on('disconnected', () => {
+    isConnected = false
+    console.log('MongoDB disconnected')
+  })
+
+  return db
+}
+
+// Export connection function for use in API routes
 export default db
+export { connectDB }

@@ -1,3 +1,4 @@
+import { connectDB } from '@lib/db'
 import Page from '@models/pageModel'
 import { generateUniqueSlug } from '@utils/generateUniqueSlug'
 
@@ -6,6 +7,15 @@ import type { IPageDocument, IPostPageRequest } from '@interfaces'
 
 // Route: /api/v1/pages
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Ensure MongoDB connection before handling request
+  try {
+    await connectDB()
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Database connection failed. Please check your MongoDB configuration.',
+    })
+  }
   // Create Page
   // Method: POST
   if (req.method === 'POST') {
