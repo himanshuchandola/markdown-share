@@ -1,4 +1,4 @@
-// Page
+// Page - Base interface
 export interface IPage {
   _id: string // a.k.a. `slug`
   title?: string
@@ -7,6 +7,11 @@ export interface IPage {
   isCommentable: boolean
   createdAt?: Date
   expireAt?: Date
+}
+
+// Page with mongoose Document methods
+export interface IPageDocument extends IPage {
+  save(): Promise<IPageDocument>
 }
 
 // Processed Page
