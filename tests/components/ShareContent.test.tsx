@@ -52,24 +52,11 @@ describe('ShareContent component', () => {
   const slug = 'test-slug'
   const fullLink = `${appUrl}/${slug}`
 
-  it('should render social media buttons with correct links', () => {
+  it('should render copy link section with label', () => {
     render(<ShareContent slug={slug} />)
 
-    const facebookLink = screen.getByTitle('Share link via Facebook')
-    const twitterLink = screen.getByTitle('Share link via Twitter')
-    const linkedinLink = screen.getByTitle('Share link via LinkedIn')
-    const instagramLink = screen.getByTitle('Share link via Instagram')
-
-    expect(facebookLink).toHaveAttribute(
-      'href',
-      `https://www.facebook.com/sharer/sharer.php?u=${fullLink}`,
-    )
-    expect(twitterLink).toHaveAttribute('href', `https://twitter.com/intent/tweet?text=${fullLink}`)
-    expect(linkedinLink).toHaveAttribute(
-      'href',
-      `https://www.linkedin.com/sharing/share-offsite/?url=${fullLink}`,
-    )
-    expect(instagramLink).toHaveAttribute('href', `https://www.instagram.com/?url=${fullLink}`)
+    const copyLabel = screen.getByText('Copy link')
+    expect(copyLabel).toBeInTheDocument()
   })
 
   it('should render CopyLink component with correct link', () => {
@@ -86,18 +73,11 @@ describe('ShareContent component', () => {
     expect(openLinkButton).toHaveAttribute('href', fullLink)
   })
 
-  it('should render all social media icons', () => {
+  it('should render share header with subtitle', () => {
     render(<ShareContent slug={slug} />)
 
-    const facebookIcon = screen.getByTitle('Share link via Facebook')
-    const twitterIcon = screen.getByTitle('Share link via Twitter')
-    const linkedinIcon = screen.getByTitle('Share link via LinkedIn')
-    const instagramIcon = screen.getByTitle('Share link via Instagram')
-
-    expect(facebookIcon).toBeInTheDocument()
-    expect(twitterIcon).toBeInTheDocument()
-    expect(linkedinIcon).toBeInTheDocument()
-    expect(instagramIcon).toBeInTheDocument()
+    const subtitle = screen.getByText('Share this link with others')
+    expect(subtitle).toBeInTheDocument()
   })
 
   it('should call CopyLink component correctly when clicked', async () => {
