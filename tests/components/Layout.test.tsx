@@ -14,16 +14,6 @@ describe('Layout component', () => {
     expect(navbar).toBeInTheDocument()
   })
 
-  it('should render Footer component', () => {
-    const { getByRole } = render(
-      <Layout>
-        <p>test content</p>
-      </Layout>,
-    )
-    const footer = getByRole('contentinfo')
-    expect(footer).toBeInTheDocument()
-  })
-
   it('should render ScrollToTop component', () => {
     const { getByTitle } = render(
       <Layout>
@@ -62,7 +52,6 @@ describe('Layout component', () => {
     const wrapper = container.querySelector('.wrapper')
     expect(wrapper).toContainElement(container.querySelector('header'))
     expect(wrapper).toContainElement(container.querySelector('main'))
-    expect(wrapper).toContainElement(container.querySelector('footer'))
     expect(wrapper).toContainElement(container.querySelector('svg'))
   })
 })

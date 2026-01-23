@@ -34,6 +34,7 @@ const customJestConfig = {
     '^@pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@models/(.*)$': '<rootDir>/src/models/$1',
   },
+  transformIgnorePatterns: ['node_modules/(?!(msw|until-async)/)'],
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
