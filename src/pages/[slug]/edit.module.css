@@ -68,7 +68,7 @@
 }
 
 .cancel_button {
-  border: 1.5px solid var(--color-border);
+  border: 2px solid var(--color-border);
 
   background-color: var(--color-canvas);
 
