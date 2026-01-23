@@ -27,19 +27,19 @@ describe('SEO component', () => {
   it('should render the correct page title', async () => {
     render(<SEO {...mockProps} />, { container: document.head })
 
-    expect(document.title).toBe('Test Title | md share')
+    expect(document.title).toBe('Test Title | Markdrop')
   })
 
   it('should render the correct page title without props', async () => {
     render(<SEO />, { container: document.head })
 
-    expect(document.title).toBe('md share')
+    expect(document.title).toBe('Markdrop')
   })
 
   it('should render the correct meta tags', async () => {
     render(<SEO {...mockProps} />, { container: document.head })
 
-    const expectedTitle = `${mockProps.title} | md share`
+    const expectedTitle = `${mockProps.title} | Markdrop`
     expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toMatch(
       '/test-s9g8df',
     )

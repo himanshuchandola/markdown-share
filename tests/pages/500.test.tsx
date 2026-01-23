@@ -29,7 +29,7 @@ describe('NotFoundPage', () => {
   it('should render the correct title and description for SEO', async () => {
     render(<NotFoundPage />)
 
-    expect(document.title).toEqual('500: Server Error | md share')
+    expect(document.title).toEqual('500: Server Error | Markdrop')
   })
 
   it('should render a heading with the 500 status code and a message', () => {

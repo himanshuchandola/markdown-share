@@ -19,7 +19,7 @@ describe('Home', () => {
   it('should render the correct title and description for SEO', () => {
     render(<Home />)
 
-    expect(document.title).toEqual('md share')
+    expect(document.title).toEqual('Markdrop')
   })
 
   it('should render a heading', () => {
