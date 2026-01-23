@@ -29,22 +29,22 @@ The **.mdShare** Solution: Simplify Markdown File Sharing. Effortless Sharing: U
 
 - set up variables in `.env` file, check table [Settings](#%EF%B8%8F-settings)
 
-- Install dependens:
+- Install dependencies:
 
   ```bash
-  yarn install
+  pnpm install
   ```
 
 - Build your application:
 
   ```bash
-  yarn build
+  pnpm build
   ```
 
 - Start the Node.js server:
 
   ```bash
-  yarn start
+  pnpm start
   ```
 
 - And you can check the site on [`localhost:3000`](http://localhost:3000)
