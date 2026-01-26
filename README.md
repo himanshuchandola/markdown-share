@@ -1,3 +1,7 @@
+> **⚠️ Legacy v1:** The previous Markdrop app (Next.js Pages + MongoDB) is on branch **[`v1`](https://github.com/himanshuchandola/markdown-share/tree/v1)** and live at **[v1-markdown.himanshuchandola.dev](https://v1-markdown.himanshuchandola.dev)**. This repo’s default branch (`main`) is v2 (Supabase).
+
+---
+
 # Markdrop
 
 <img src="./public/icon.svg" alt="Markdrop" width="32" />
@@ -6,8 +10,6 @@ Edit markdown with live preview and share instantly.
 
 - **Editor**: Type or paste markdown with real-time preview. Syntax highlighting for code blocks.
 - **Share**: Create a document and share via link. Anyone with the link can view at `/share/[id]`.
-
-**Legacy v1** (Next.js Pages + MongoDB) lives on branch **[`v1`](https://github.com/himanshuchandola/markdown-share/tree/v1)**. Check it out to run or work on the old app: `git checkout v1`.
 
 ## Requirements
 
