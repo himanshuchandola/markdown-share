@@ -119,21 +119,6 @@ export default function Home() {
 
       <footer className="border-t border-border bg-muted/30 px-4 py-2 md:px-6"> 
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 sm:flex-row">
-          <div className="flex flex-col items-center gap-1 sm:items-start">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <span>Created by</span>
-              <a
-                href="https://github.com/himanshuchandola"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-1 font-medium text-foreground hover:underline"
-              >
-                <Github className="h-3 w-3" />
-                himanshuchandola
-              </a>
-            </div>
-          </div>
-
           <a
             href="https://github.com/himanshuchandola/markdown-share"
             target="_blank"
@@ -146,6 +131,27 @@ export default function Home() {
               <Star className="h-3 w-3" />
             </span>
           </a>
+
+          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <span>Created by</span>
+            <a
+              href="https://github.com/himanshuchandola"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-foreground hover:underline"
+            >
+              himanshuchandola
+            </a>
+            <span aria-hidden="true">·</span>
+            <a
+              href="https://himanshuchandola.dev"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-foreground hover:underline"
+            >
+              himanshuchandola.dev
+            </a>
+          </div>
         </div>
       </footer>
     </div>

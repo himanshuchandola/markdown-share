@@ -9,9 +9,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Markdrop - Markdown Editor',
-  description: 'A professional markdown editor with real-time preview and sharing capabilities',
-  keywords: ['markdown', 'editor', 'preview', 'writing', 'documentation', 'markdrop'],
-  authors: [{ name: 'Markdrop Team' }],
+  description: 'Edit markdown with live preview and share instantly',
+  keywords: ['markdown', 'editor', 'preview', 'writing', 'share', 'markdrop'],
+  authors: [{ name: 'Himanshu Chandola' }],
   icons: {
     icon: [
       {

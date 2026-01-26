@@ -184,21 +184,6 @@ export function SharedDocumentView({ content, documentId }: SharedDocumentViewPr
 
       <footer className="border-t border-border bg-muted/30 px-4 py-6 md:px-6">
         <div className="mx-auto flex max-w-3xl flex-col items-center justify-between gap-4 sm:flex-row">
-          <div className="flex flex-col items-center gap-1 sm:items-start">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>Created by</span>
-              <a
-                href="https://github.com/himanshuchandola"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-1 font-medium text-foreground hover:underline"
-              >
-                <Github className="h-3.5 w-3.5" />
-                himanshuchandola
-              </a>
-            </div>
-          </div>
-
           <a
             href="https://github.com/himanshuchandola/markdown-share"
             target="_blank"
@@ -211,9 +196,28 @@ export function SharedDocumentView({ content, documentId }: SharedDocumentViewPr
               <Star className="h-3.5 w-3.5" />
             </span>
           </a>
-        </div>
-        
 
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span>Created by</span>
+            <a
+              href="https://github.com/himanshuchandola"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-foreground hover:underline"
+            >
+              himanshuchandola
+            </a>
+            <span aria-hidden="true">·</span>
+            <a
+              href="https://himanshuchandola.dev"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-foreground hover:underline"
+            >
+              himanshuchandola.dev
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   )
