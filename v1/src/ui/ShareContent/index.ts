@@ -1,1 +1,0 @@
-export { ShareContent } from './ShareContent'
