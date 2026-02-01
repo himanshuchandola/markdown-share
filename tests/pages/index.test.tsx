@@ -26,7 +26,7 @@ describe('Home', () => {
     render(<Home />)
 
     const heading = screen.getByRole('heading', {
-      name: /Share Your Markdown Files/i,
+      name: /Markdown Editor & Share/i,
     })
     expect(heading).toBeInTheDocument()
   })
