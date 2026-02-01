@@ -19,7 +19,6 @@
 
   background-color: var(--color-bg);
   backdrop-filter: blur(10px) saturate(180%);
-  backdrop-filter: blur(10px) saturate(180%);
 }
 
 @media (prefers-color-scheme: light) {

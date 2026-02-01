@@ -26,15 +26,14 @@ const customJestConfig = {
   moduleDirectories: ['node_modules', '<rootDir>/'],
 
   moduleNameMapper: {
-    // Handle module aliases (this will be automatically configured for you soon)
     '\\.svg': 'svgr/webpack',
-    '^@lib/(.*)$': '<rootDir>/src/core/$1',
-    '^@components/(.*)$': '<rootDir>/src/ui/$1',
-    '^@utils/(.*)$': '<rootDir>/src/helpers/$1',
+    '^@core/(.*)$': '<rootDir>/src/core/$1',
+    '^@ui/(.*)$': '<rootDir>/src/ui/$1',
+    '^@helpers/(.*)$': '<rootDir>/src/helpers/$1',
     '^@pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@models/(.*)$': '<rootDir>/src/core/db/models/$1',
-    '^@styles/(.*)$': '<rootDir>/src/theme/$1',
-    '^@interfaces$': '<rootDir>/src/types',
+    '^@theme/(.*)$': '<rootDir>/src/theme/$1',
+    '^@types$': '<rootDir>/src/types',
   },
   testPathIgnorePatterns: ['/node_modules/', '/.next/', '/tests/ui/UploadForm.test.tsx'],
   transformIgnorePatterns: ['node_modules/.pnpm/.*', 'node_modules/(?!(msw|@mswjs|until-async)/)'],
