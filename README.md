@@ -48,10 +48,11 @@ pnpm dev
 
 ## Environment
 
-| Variable                     | Description                    |
-| ---------------------------- | ------------------------------ |
-| `NEXT_PUBLIC_SUPABASE_URL`   | Supabase project URL           |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon (public) key  |
+| Variable                     | Description                                                    |
+| ---------------------------- | -------------------------------------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`   | Supabase project URL                                           |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon (public) key                                  |
+| `V1_REDIRECT_SLUGS`          | Optional. Comma-separated v1-only slugs to redirect to v1 subdomain. |
 
 ## Tech stack
 
