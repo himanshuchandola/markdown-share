@@ -34,28 +34,28 @@ pnpm dev
 
 ## Scripts
 
-| Script        | Description                |
-| ------------- | -------------------------- |
-| `pnpm dev`    | Start dev server           |
-| `pnpm build`  | Build for production       |
-| `pnpm start`  | Start production server    |
-| `pnpm test`   | Run tests (watch)          |
-| `pnpm test:ci`| Run tests once             |
-| `pnpm lint`   | Lint JS and CSS            |
+| Script           | Description             |
+| ---------------- | ----------------------- |
+| `pnpm dev`       | Start dev server        |
+| `pnpm build`     | Build for production    |
+| `pnpm start`     | Start production server |
+| `pnpm test`      | Run tests (watch)       |
+| `pnpm test:ci`   | Run tests once          |
+| `pnpm lint`      | Lint JS and CSS         |
 | `pnpm typecheck` | TypeScript check        |
 
 ## Environment
 
-| Variable        | Description |
-| --------------- | ----------- |
-| `APP_URL`       | App URL for SEO and links (e.g. `https://example.com` or `http://localhost:3000`) |
-| `MONGO_HOST`    | MongoDB host |
-| `MONGO_PORT`    | MongoDB port |
-| `MONGO_USER`    | MongoDB user |
-| `MONGO_PASSWD`  | MongoDB password |
-| `MONGO_DATABASE`| Database name (default: `markdrop`) |
-| `MONGO_URI`     | Full connection string (overrides the above if set) |
-| `API_SECRET`    | Optional. If set, requests must send it in `X-API-Secret` header |
+| Variable         | Description                                                                       |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `APP_URL`        | App URL for SEO and links (e.g. `https://example.com` or `http://localhost:3000`) |
+| `MONGO_HOST`     | MongoDB host                                                                      |
+| `MONGO_PORT`     | MongoDB port                                                                      |
+| `MONGO_USER`     | MongoDB user                                                                      |
+| `MONGO_PASSWD`   | MongoDB password                                                                  |
+| `MONGO_DATABASE` | Database name (default: `markdrop`)                                               |
+| `MONGO_URI`      | Full connection string (overrides the above if set)                               |
+| `API_SECRET`     | Optional. If set, requests must send it in `X-API-Secret` header                  |
 
 ## Tech stack
 
@@ -64,4 +64,3 @@ pnpm dev
 - **markdown-it** (markdown → HTML), **highlight.js** (code), **dompurify** (sanitize)
 - **Jest** + **Testing Library** for tests
 - **PostCSS**, **next-themes** (light/dark)
-
