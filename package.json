@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
-    "build": "next build",
+    "build": "next build --webpack",
     "test": "jest --watch",
     "test:ci": "jest --ci",
     "coverage": "jest --coverage",
@@ -17,7 +17,7 @@
     "start": "next start",
     "lint": "pnpm lint:js && pnpm lint:css",
     "lint:fix": "pnpm lint:js:fix && pnpm lint:css:fix",
-    "lint:js": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
+    "lint:js": "eslint .",
     "lint:js:fix": "pnpm lint:js --fix",
     "lint:css": "stylelint src/**/*.{scss,css}",
     "lint:css:fix": "pnpm lint:css --fix",
@@ -32,7 +32,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --config ./.prettierrc --write",
-      "eslint --ignore-path .gitignore --ext ts --ext tsx --ext js --ext jsx --fix"
+      "eslint --fix"
     ],
     "*.{scss,css}": [
       "stylelint --fix"
@@ -54,15 +54,15 @@
     "jsdom": "^26.1.0",
     "markdown-it": "^14.1.0",
     "mongoose": "^8.19.3",
-    "next": "^15.5.9",
+    "next": "^16.1.6",
     "next-pwa": "^5.6.0",
     "next-themes": "^0.4.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^16.0.5",
+    "@next/bundle-analyzer": "^16.1.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^15.0.7",
     "@testing-library/user-event": "^14.6.1",
@@ -71,16 +71,16 @@
     "@types/jsdom": "^21.1.7",
     "@types/markdown-it": "^14.1.2",
     "@types/node": "24.10.1",
-    "@types/react": "18.0.21",
-    "@types/react-dom": "18.0.6",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "commitizen": "^4.2.5",
     "conventional-changelog-cli": "^5.0.0",
     "cross-env": "^10.1.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.26.0",
-    "eslint-config-next": "^13.0.0",
+    "eslint": "^9.26.0",
+    "eslint-config-next": "^16.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jest-dom": "^5.5.0",
@@ -130,5 +130,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "pnpm": {
+    "overrides": {
+      "@conventional-changelog/git-client": ">=2.0.0",
+      "lodash": ">=4.17.23",
+      "tmp": ">=0.2.4"
+    }
   }
 }
