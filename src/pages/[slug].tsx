@@ -38,7 +38,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
     // Connect to database and fetch page directly
     await connectDB()
-    const page: IPage | null = await Page.findById(slug).exec()
+    // Explicitly select password field to check if page has password protection
+    const page: IPage | null = await Page.findById(slug).select('+password').exec()
 
     if (!page) {
       return {
