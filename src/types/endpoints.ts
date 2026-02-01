@@ -22,6 +22,7 @@ export interface IHTMLPage {
   author?: string
   isCommentable: boolean
   html: string
+  hasPassword?: boolean // Whether the page has password protection (for edit access)
 }
 
 // Success Response from GET:/api/v1/pages/
