@@ -8,7 +8,7 @@ import remarkBreaks from "remark-breaks"
 import rehypeKatex from "rehype-katex"
 import rehypeHighlight from "rehype-highlight"
 import "katex/dist/katex.min.css"
-import { Check, Copy, FileText, Moon, Sun, Monitor, Link, Pencil, Github, Star } from "lucide-react"
+import { Check, Copy, FileText, Moon, Sun, Monitor, Link, Pencil } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -185,19 +185,15 @@ export function SharedDocumentView({ content, documentId }: SharedDocumentViewPr
       <footer className="border-t border-border bg-muted/30 px-4 py-6 md:px-6">
         <div className="mx-auto flex max-w-3xl flex-col items-center justify-between gap-4 sm:flex-row">
           <a
-            href="https://github.com/himanshuchandola/markdown-share"
+            href="https://v1-markdown.himanshuchandola.dev"
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-sm font-medium transition-colors hover:bg-muted"
+            className="flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-sm font-medium transition-colors hover:bg-muted"
           >
-            <Github className="h-4 w-4" />
-            <span>Star on GitHub</span>
-            <span className="flex items-center gap-1 border-l border-border pl-2 text-muted-foreground group-hover:text-foreground">
-              <Star className="h-3.5 w-3.5" />
-            </span>
+            v1 Markdrop
           </a>
 
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-muted-foreground sm:justify-end">
             <span>Created by</span>
             <a
               href="https://github.com/himanshuchandola"
