@@ -1,7 +1,7 @@
 {
-  "name": "md share",
-  "short_name": "mdShare",
-  "description": "Best way to share your markdown files.",
+  "name": "Markdrop",
+  "short_name": "Markdrop",
+  "description": "Edit markdown with live preview and share instantly.",
   "start_url": "/",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",

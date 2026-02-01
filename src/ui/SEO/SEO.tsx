@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import type { SEOProps } from './types'
 
-const SITE_NAME = 'md share'
+const SITE_NAME = 'Markdrop'
 const SITE_URL = process.env.APP_URL
 
 export const SEO = ({
@@ -37,7 +37,7 @@ export const SEO = ({
       <meta name="slurp" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
       <meta name="duckduckbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
       <meta name="description" content={seo.description} />
-      <meta name="keywords" content="markdown, share, mdshare, md, md share, markdown share" />
+      <meta name="keywords" content="markdown, share, markdrop, md, markdown share" />
       <link rel="canonical" href={seo.url} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={seo.url} />

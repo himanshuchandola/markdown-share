@@ -17,7 +17,7 @@ export const Navbar = () => {
   return (
     <nav className={styles.navbar} role="navigation">
       <Link className={styles.navbar__logo} href="/">
-        .mdShare
+        Markdrop
       </Link>
       <ul className={isActive ? `${styles.navbar__menu} ${styles.active}` : styles.navbar__menu}>
         {pages.map((page) => (

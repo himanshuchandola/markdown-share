@@ -23,7 +23,7 @@ describe('NotFoundPage', () => {
   it('should render the correct title and description for SEO', () => {
     render(<NotFoundPage />)
 
-    expect(document.title).toEqual('404: Not Found | md share')
+    expect(document.title).toEqual('404: Not Found | Markdrop')
   })
 
   it('should render a heading with the 404 status code and a message', () => {

@@ -79,7 +79,7 @@ describe('[slug] page', () => {
   it('should render the correct metadata', () => {
     render(<PostPage page={mockPage} />)
 
-    const expectedTitle = `${mockPage.title} | md share`
+    const expectedTitle = `${mockPage.title} | Markdrop`
     expect(document.title).toBe(expectedTitle)
     expect(document.querySelector('meta[name="twitter:title"]')?.getAttribute('content')).toBe(
       expectedTitle,

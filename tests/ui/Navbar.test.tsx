@@ -9,7 +9,7 @@ jest.mock('next/router', () => ({
 describe('Navbar component', () => {
   it('should render the logo', () => {
     const { getByText } = render(<Navbar />)
-    const banner = getByText('.mdShare')
+    const banner = getByText('Markdrop')
     expect(banner).toBeInTheDocument()
   })
 

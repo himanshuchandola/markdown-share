@@ -1,7 +1,7 @@
 {
-  "name": "mdshare",
-  "version": "1.12.2",
-  "description": "Application to share Markdown files",
+  "name": "markdrop",
+  "version": "1.0.0",
+  "description": "Edit markdown with live preview and share instantly",
   "license": "AGPL-3.0",
   "scripts": {
     "dev": "next dev",
