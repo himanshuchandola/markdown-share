@@ -10,13 +10,13 @@
     "paths": {
       "@root/*": ["./*"],
       "@public/*": ["public/*"],
-      "@lib/*": ["src/core/*"],
-      "@components/*": ["src/ui/*"],
-      "@utils/*": ["src/helpers/*"],
+      "@core/*": ["src/core/*"],
+      "@ui/*": ["src/ui/*"],
+      "@helpers/*": ["src/helpers/*"],
       "@pages/*": ["src/pages/*"],
-      "@styles/*": ["src/theme/*"],
+      "@theme/*": ["src/theme/*"],
       "@models/*": ["src/core/db/models/*"],
-      "@interfaces": ["src/types"]
+      "@types": ["src/types"]
     },
     "resolveJsonModule": true,
     "allowJs": false,

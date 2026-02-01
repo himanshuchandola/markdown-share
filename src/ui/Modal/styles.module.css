@@ -17,7 +17,6 @@
   background-color: rgb(0 0 0 / 50%);
   pointer-events: none;
   backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
 
   &.active {
     opacity: 1;
