@@ -114,6 +114,7 @@ time.now()
     _id: 'uniq-a1b2c3',
     title: 'Test Page',
     author: 'John Doe',
+    hasPassword: false,
     html: `<h1>Should be first title</h1>
 <p><strong>Should be bold.</strong></p>
 <pre><code class="language-python"><span class="hljs-keyword">import</span> time
