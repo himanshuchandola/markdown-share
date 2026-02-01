@@ -43,9 +43,7 @@ async function connectDB() {
   try {
     await db.connect(MONGO_URI, connectionOptions)
     isConnected = true
-    console.log('MongoDB connected successfully')
   } catch (error) {
-    console.error('MongoDB connection error:', error)
     isConnected = false
     throw error
   }
@@ -53,17 +51,14 @@ async function connectDB() {
   // Handle connection events
   db.connection.on('connected', () => {
     isConnected = true
-    console.log('MongoDB connected')
   })
 
   db.connection.on('error', (err) => {
     isConnected = false
-    console.error('MongoDB connection error:', err)
   })
 
   db.connection.on('disconnected', () => {
     isConnected = false
-    console.log('MongoDB disconnected')
   })
 
   return db
