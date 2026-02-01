@@ -50,21 +50,31 @@ export async function generateUniqueSlug(pageName?: string): Promise<{
 
   // Check if base slug exists
   let slug = baseSlug
-  let counter = 1
   let existingPage = await Page.findById(slug).exec()
 
-  // If slug exists, try appending numbers until we find an available one
-  while (existingPage) {
-    counter++
+  // If base slug exists, try appending numbers starting from 2 until we find an available one
+  if (existingPage) {
+    let counter = 2
     slug = `${baseSlug}-${counter}`
     existingPage = await Page.findById(slug).exec()
+
+    // Keep incrementing until we find an available slug
+    while (existingPage) {
+      counter++
+      slug = `${baseSlug}-${counter}`
+      existingPage = await Page.findById(slug).exec()
+    }
+
+    // This is a duplicate since base slug existed
+    return {
+      created: true,
+      slug: slug,
+    }
   }
 
-  // If counter > 1, it means the base slug existed, so this is a duplicate
-  const isDuplicate = counter > 1
-
+  // Base slug is available
   return {
-    created: isDuplicate,
+    created: false,
     slug: slug,
   }
 }
